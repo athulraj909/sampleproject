@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="text"],input[type='password'],input[type="submit"]{
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .main{
+            display: flex;
+            justify-content: center;
+        }
+        input[type="submit"]{
+            width: 100%;
+            background-color: rgb(8, 165, 116);
+            border: none;
+            border-radius: 5px;
+            height: 30px;
+            color: white;
+            font-weight: bold;
+        }
+        input[type='submit']:hover{
+            background-color: rgb(3, 112, 77);
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <h1>LOGIN FORM</h1>
+        </div>
+        <div class="main">
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="submit" value="LOGIN">
+            </form>
+            
+        </div>
+        {% if message %}
+                <h3 style="text-align: center;">{{message}}</h3>
+            {% endif %}
+    </div>
+    <a href="{% url 'reg' %}" style="display: block;text-align: center;">registration</a>
+</body>
+</html>

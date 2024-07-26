@@ -1,0 +1,53 @@
+{% extends 'userhome.html' %}
+{% block content %}
+
+
+<style>
+    table{
+        color: rgb(3, 3, 3);
+        background-color: #87b4a6;
+        margin-top:10px;
+        justify-content: center;
+        width: 100%;
+        height:auto;
+           
+        }
+    
+    .container{
+        background-color: #87b4a6;
+        width:100%;
+        height:100%; 
+        padding-top:40px;
+        font-size:larger;
+        margin-top:30px;
+        margin-left: 100px;
+        border-radius: 20px; 
+        align-content:center;
+        
+    }
+    
+</style>
+<div class="container">
+        <table>
+            <tr>
+                <th>SLNO</th>
+                <th>Dateandtime</th>
+                <th>Details</th>
+                <th>Amount</th>
+                <th>Balance</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.dateandtime }}</td>
+                <td>{{ i.details }}</td>
+                <td>{{ i.amount }}</td>
+                <td>{{ i.balance }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+
+
+
+{% endblock %}

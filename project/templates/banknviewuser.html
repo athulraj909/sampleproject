@@ -1,0 +1,32 @@
+{% extends 'bankhome.html' %}
+{% block content %}
+
+<div class="mt-5">
+    <table class="w-100">
+        <tr>
+            <th>Profile</th>
+            <th>Name</th>
+            <th>Phonenumber</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        {% for i in data %}
+        <tr>
+            <td><img src="{{ i.Image.url }}" alt="" width="100px" height="100px" style="border-radius: 50%;"></td>
+            <td>{{ i.first_name }}</td>
+            <td>{{ i.Phonenumber }}</td>
+            <td><a href="{% url 'viewuserdetails' id=i.id %}"><button>ViewUser</button></a></td>
+            <td><a href="{% url 'bankuserhistory' id=i.id %}"><button>History</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+<style>
+    table,td,th{
+        border: 1px solid black;
+    }
+</style>
+{% endblock %}

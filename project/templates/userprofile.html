@@ -1,0 +1,35 @@
+{% extends 'userhome.html' %}
+{% block content %}
+
+<div style="display: flex;justify-content: center;">
+    <div style="text-align: center;">
+        
+    <h1>Profile</h1>
+    <img src="{{data.Image.url}}" alt="" width="100px" height="100px" style="border-radius: 50%;">
+    <h4>Name : {{data.first_name}}</h4>
+    <h4>Age : {{data.Age}}</h4>
+    <h4>Email : {{data.email}}</h4>
+    <h4>Phonenumber : {{data.Phonenumber}}</h4>
+    <h4>Address : {{data.Address}}</h4>
+    <h4>DOB : {{data.DOB}}</h4>
+
+    <a href="{% url 'useredit' id=data.id %}"><button>EDIT</button></a>
+    </div>
+
+</div>
+
+<style>
+    button{
+        color: white;
+        background-color: black;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer
+    }
+    button:hover{
+        background-color: rgb(41, 40, 40);
+    }
+</style>
+
+{% endblock %}

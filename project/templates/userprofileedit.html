@@ -1,0 +1,40 @@
+{% extends 'userhome.html' %}
+{% block content %}
+
+<div>
+    <form action="{% url 'useredit' id=data.id %}" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+       
+        <input type="text" name="Name" placeholder="Name" value="{{ data.first_name }}" required>
+    
+        <input type="text" name="Age" value="{{data.Age}}" id="" required>
+    
+        <input type="email" name="Email" placeholder="Email" value="{{data.email}}" required>
+    
+        <input type="text" name="Phonenumber" placeholder="Phone Number" value="{{data.Phonenumber}}" required>
+    
+        <input type="text" name="Address" placeholder="Adderess" value="{{data.Address}}" required>
+    
+        <input type="date" placeholder="DOB" id="DOB" name='DOB' value="{{data.DOB|date:'Y-m-d'}}" required>
+    
+        <input type="text" name="UserName" placeholder="UserName" value="{{data.username}}" required>
+    
+        <input type="file" name="Image" value="" >
+       
+        <input type="submit" value="SUBMIT" >
+    </form>
+</div>
+
+
+<style>
+    input[type="submit"],input[type="file"],input[type="text"],input[type="date"],input[type="email"],input[type="password"]{
+        display: block;
+        margin-top: 10px;
+    }
+    div{
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+{% endblock %}

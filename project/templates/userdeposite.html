@@ -1,0 +1,86 @@
+{% extends 'userhome.html' %}
+{% block content %}
+
+<div class="container">
+    <form action="{% url 'deposite' %}" method="POST">
+        {% csrf_token %}
+
+        <h3>Deposit</h3>
+        <label for="Account Numnber"><b>Account Number</b></label><br>
+        <p>{{  data.Accountnumber}}</p>
+
+       
+
+        <label for="Available Balance"><b>Available Balance</b></label>
+          <p>{{ data.Initialamount}}</p>
+
+        <label for="Amount"><b>Amount</b></label><br>
+        <input type="text" placeholder="amount" name="amount" ><br> 
+        <button type="submit">Deposit</button>
+        <!-- <button type="button" ><a href="{% url 'deposite' %}">Back</a></button> -->
+
+        <div class="row d-flex">
+            <h5 class="col-sm-12">{{ error }}</h5>
+            <h5 class="col-sm-12">{{ Deposited }}</h5>  
+        </div>
+        
+           
+          
+        
+    </form>
+
+</div>
+<style>
+    .container{
+        background-color: #87b4a6;
+        width:400px;
+        height:auto; 
+        padding-top:40px;
+        font-size:larger;
+        margin-top:30px;
+        margin-left: 30px;
+        margin-right:30px;
+        border-radius: 20px; 
+    }
+    h3{
+        font-weight: bold;
+        margin-bottom:30px;
+        color: black;
+        text-align: center;
+   
+    }
+
+    h5{
+        font-weight: bolder;
+        padding-bottom:20px;
+        padding-top:10px;
+        color: black;
+        text-align: center;
+   
+    }
+    input[type="text"]{
+        padding: 5px;
+        width: auto; 
+        background-color: transparent;
+        border-top-color:transparent ;
+        border-left-color: transparent;
+        border-right-color:transparent ;
+        border-radius: 5px;
+      
+    }
+    button {
+        padding: auto;
+        width: 100px; 
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        border-bottom:2px;
+        background-color: #D9D9D9;
+        margin-top:30px;
+        margin-bottom:10px;
+        margin-left :120px;
+    }
+</style>
+
+{% endblock %}

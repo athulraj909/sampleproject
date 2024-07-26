@@ -1,0 +1,32 @@
+{% extends 'bankhome.html' %}
+{% block content %}
+
+
+
+    
+        </div>
+        <table class="table">
+                <tr>
+                    <th>SLNO</th>
+                    <th>Dateandtime</th>
+                    <th>Details</th>
+                    <th>Amount</th>
+                    <th>Balance</th>
+                </tr>
+                <br>
+                {% for i in data %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ i.dateandtime }}</td>
+                    <td>{{ i.details }}</td>
+                    <td>{{ i.amount }}</td>
+                    <td>{{ i.balance }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            
+    </div>
+
+
+
+{% endblock %}
